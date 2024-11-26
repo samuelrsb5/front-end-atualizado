@@ -1,5 +1,22 @@
 <div class="mapa">
-    <h1>Mapa de Coleta</h1>
-    <p>Aqui você encontra os pontos de coleta seletiva próximos a você!</p>
-    <button routerLink="/home">Voltar para Home</button>
+  <h1>Mapa de Coleta</h1>
+  <p>Aqui você encontra os pontos de coleta seletiva próximos a você!</p>
+  <button routerLink="/home">Voltar para Home</button>
+  
+  <div class="container">
+    <input placeholder="Buscar..." class="js-search" type="text">
+    <i class="fa fa-search"></i>
   </div>
+</div>
+
+<div class="google-maps">
+  <google-map 
+    [center]="center" 
+    [zoom]="zoom" 
+    style="height: 500px; width: 100%;">
+    <map-marker *ngFor="let marker of markers" 
+                [position]="marker.position" 
+                [title]="marker.title">
+    </map-marker>
+  </google-map>
+</div>
